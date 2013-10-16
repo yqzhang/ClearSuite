@@ -1,0 +1,4 @@
+create keyspace usertable with replication_factor=1;
+use usertable;
+create column family data with column_type = 'Standard' and comparator = 'UTF8Type';
+exit;
