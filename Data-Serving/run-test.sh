@@ -1,6 +1,6 @@
 #!/bin/bash
-## File: Data-Serving/run-warmup.sh
-## Usage: run-warmup.sh
+## File: Data-Serving/run-test.sh
+## Usage: run-test.sh
 ## Author: Yunqi Zhang (yunqi@umich.edu)
 ## Notes: This script is used to warm up the Cassandra database.
 
@@ -49,5 +49,5 @@ then
   exit 1
 fi
 
-# Start warmup phase
+# Start test
 ssh $client_ip "$client_dir/Data-Serving/YCSB/run.command"
