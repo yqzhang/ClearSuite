@@ -2,15 +2,9 @@
 ## File: Data-Serving/setup-client.sh
 ## Usage: setup-client.sh
 ## Author: Yunqi Zhang (yunqi@umich.edu)
-## Notes: This script is used to setup required packages on the client side
-##        for Data-Serving which is a benchmark in CloudSuite.
 
 BENCHMARK="Data-Serving"
 
-# Change directory
-cd $1/$BENCHMARK
-
-# Check all the required applications
 echo "[$BENCHMARK] Check required applications ..."
 REQUIRED_APPS=( "git" "ant" "javac" "sed" )
 for app in "${REQUIRED_APPS[@]}"
@@ -21,6 +15,11 @@ do
     exit 1
   fi
 done
+
+# Create directory for the benchmark
+mkdir "$BENCHMARK-Client"
+# Change directory
+cd "$BENCHMARK-Client"
 
 # Download Data Serving Benchmark
 echo "[$BENCHMARK] Downloading Data Serving Benchmark ..."
@@ -50,3 +49,7 @@ echo "[$BENCHMARK] Generate $MEM_SIZE records for $MEM_SIZE KB memory"
 sed -i "1 s|localhost|$2|" settings_load.dat
 sed -i "2 s|1|$NUM_CORE|" settings_load.dat
 sed -i "3 s|5000000|$MEM_SIZE|" settings_load.dat
+
+# You need to copy *.jar from Cassandra to YCSB
+echo "[$BENCHMARK] You need to manually copy /Data-Serving-Server/apache-cassandra-0.7.3/lib/*.jar"
+echo "             from the server to /Data-Server-Client/YCSB/db/cassandra-0.7/lib/ on the client"

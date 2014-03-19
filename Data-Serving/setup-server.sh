@@ -2,14 +2,9 @@
 ## File: Data-Serving/setup-server.sh
 ## Usage: setup-server.sh
 ## Author: Yunqi Zhang (yunqi@umich.edu)
-## Notes: This script is used to setup required packages on the server side
-##        for Data-Serving which is a benchmark in CloudSuite.
 
 BENCHMARK="Data-Serving"
-RESULT_DIR="data_serving_result"
-
-# Change directory
-cd $1/$BENCHMARK
+RESULT_DIR="Data-Serving-Result"
 
 # Check all the required applications
 echo "[$BENCHMARK] Check required applications ..."
@@ -23,7 +18,12 @@ do
   fi
 done
 
+# Create directory for the benchmark
+mkdir "$BENCHMARK-Server"
+# Change directory
+cd "$BENCHMARK-Server"
 # Download Cassandra 0.7.3
+
 echo "[$BENCHMARK] Downloading Cassandra 0.7.3 ..."
 BINARY_DIR="0.7.3/apache-cassandra-0.7.3-bin.tar.gz"
 wget http://archive.apache.org/dist/cassandra/$BINARY_DIR

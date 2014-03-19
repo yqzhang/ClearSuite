@@ -1,2 +1,0 @@
-server localhost /home/yunqi
-client localhost /home/yunqi
