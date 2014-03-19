@@ -2,13 +2,22 @@
 ## File: Data-Caching/setup-client.sh
 ## Usage: setup-client.sh
 ## Author: Yunqi Zhang (yunqi@umich.edu)
-## Notes: This script is used to setup required packages on the client side
-##        for Data-Caching which is a benchmark in CloudSuite.
 
 BENCHMARK="Data-Caching"
 
+# Check if libevent-dev is installed
+echo "[$BENCHMARK] Check if libevent-dev is installed"
+libevent_install=$(dpkg -s libevent-dev | grep installed)
+if [ "$libevent_install" == "" ]
+then
+  echo "libevent-dev is needed, please install it before running this script"
+  exit 1
+fi
+
+# Create directory for the benchmark
+mkdir "$BENCHMARK-Client"
 # Change directory
-cd $1/$BENCHMARK
+cd "$BENCHMARK-Client"
 
 # Download Data Caching Benchmark
 echo "[$BENCHMARK] Downloading Data Caching Benchmark ..."
@@ -23,5 +32,5 @@ cd memcached/memcached_client
 make
 
 # Change the server configuration
-echo "[$BENCHMARK] Change server configuration to server $1 ..."
-echo "$1 11211" > servers.txt
+echo "[$BENCHMARK] Please edit the server configuration memcached/memcached_client/servers.txt"
+echo "             to the server IP you want to test or localhost if it is on the same machine."

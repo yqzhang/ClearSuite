@@ -1,14 +1,14 @@
-Run on 2 machines (1 server and 1 client)
- - setup-all.sh
-    * Setup on 2 machines, one as server and one as client using
-      setup-server.sh and setup-client.sh respectively
- - setup-server.sh
- - setup-client.sh
- - run-test.sh
-    * Run test on 2 machines with run-server.sh and run-client.sh
- - run-server.sh
- - run-client.sh
+To run the Data-Caching benchmark, you will need one server to provide
+the service and one client to issue requests. They could be the same
+machine if you do not need to isolate their behaviors. *-server.sh is
+supposed to be executed on the server and *-client.sh on client. The steps
+are shown below:
 
-Configuration files
- - hosts.txt
-    * Hosts configuration for running on 2 machines
+ 1. Set up the server and the client
+   a) setup-server.sh
+   b) setup-client.sh
+ 2. Warm up the server
+   a) warmup-server.sh
+   b) warmup-client.sh
+ 3. Start the test
+   a) start-client.sh
