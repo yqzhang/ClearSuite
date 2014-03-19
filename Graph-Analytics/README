@@ -1,0 +1,10 @@
+To run the Graph-Analytics benchmark, you will need one server in total.
+All the *.sh scripts should be executed on the same machine, and the steps
+are shown below:
+
+ 1. Set up the server
+   a) setup-all.sh
+ 2. Start the test with one of these workloads
+   a) start-synthetic.sh
+   b) start-small-twitter.sh
+   c) start-large-twitter.sh
