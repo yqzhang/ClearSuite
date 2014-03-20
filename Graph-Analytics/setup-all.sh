@@ -6,6 +6,11 @@
 
 BENCHMARK="Graph-Analytics"
 
+# Create directory for the benchmark
+mkdir "$BENCHMARK"-Client
+# Change directory
+cd "$BENCHMARK"-Client
+
 # Download the package
 echo "[$BENCHMARK] Downloading package ..."
 wget http://parsa.epfl.ch/cloudsuite/software/graph.tar.gz
@@ -19,9 +24,10 @@ cd graph-release/
 cd ..
 
 echo "[$BENCHMARK] Building TunkRank ..."
-cd graph-release/toolkits/graph_analytics
+cd graph-release/release/toolkits/graph_analytics
 make tunkrank
 cd -
+exit
 
 # Set up different dataset
 # Small twitter dataset
@@ -44,4 +50,4 @@ mkdir twitter_rv
 mv twitter_rv.net twitter_rv/.
 cd Twitter-dataset/data
 cat twitter_rv.net | awk '{print $2, $1}' > twitter_data_graplab.in 
-cd ../../
+cd ../../../
