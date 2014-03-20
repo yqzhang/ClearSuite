@@ -8,7 +8,6 @@ are shown below:
    a) setup-server.sh
    b) setup-client.sh
  2. Warm up the server
-   a) warmup-server.sh
-   b) warmup-client.sh
+   a) warmup-client.sh
  3. Start the test
    a) start-client.sh

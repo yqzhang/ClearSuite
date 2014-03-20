@@ -55,6 +55,9 @@ sed -i \
 sed -i \
   "35 s|/var/log/cassandra/system.log|$RESULT_PATH/system.log|" \
   conf/log4j-server.properties
+sed -i \
+  "121 s|-Xss128k|-Xss1m|" \
+  conf/cassandra-env.sh
 cd ..
 
 # Create data schema
@@ -62,5 +65,5 @@ echo "[$BENCHMARK] Create data schema ..."
 cd apache-cassandra-0.7.3
 bin/cassandra -f &
 sleep 10
-bin/cassandra-cli --host localhost -f ../dataset-generation.txt
+bin/cassandra-cli --host localhost -f ../../dataset-generation.txt
 cd ..
