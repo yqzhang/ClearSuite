@@ -1,9 +1,15 @@
 #!/bin/bash
 ## File: Data-Caching/setup-client.sh
-## Usage: setup-client.sh
+## Usage: setup-client.sh [localhost|192.168.0.101]
 ## Author: Yunqi Zhang (yunqi@umich.edu)
 
 BENCHMARK="Data-Caching"
+
+if [ "$1" == "" ]
+then
+  echo "You need to specify the server to test, e.g. localhost, 192.168.0.1"
+  exit 1
+fi
 
 # Check if libevent-dev is installed
 echo "[$BENCHMARK] Check if libevent-dev is installed"
@@ -29,8 +35,7 @@ tar -xvf memcached.tar.gz
 # Build load tester
 echo "[$BENCHMARK] Build load tester ..."
 cd memcached/memcached_client
+sed -i "2 s|loader|loader -levent -pthread -lm|" Makefile
 make
-
-# Change the server configuration
-echo "[$BENCHMARK] Please edit the server configuration memcached/memcached_client/servers.txt"
-echo "             to the server IP you want to test or localhost if it is on the same machine."
+# Set the server list
+echo "$1 11211" > servers.txt
