@@ -1,0 +1,9 @@
+To run the Video-Streaming benchmark, you will need one server to provide
+the service and one client to issue requests. They could be the same
+machine if you do not need to isolate their behaviors. *-server.sh is
+supposed to be executed on the server and *-client.sh on the client. The steps
+are shown below:
+
+ 1. Set up the server and the client
+   a) setup-server.sh
+   b) setup-client.sh
