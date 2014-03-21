@@ -7,3 +7,5 @@ are shown below:
  1. Set up the server and the client
    a) setup-server.sh
    b) setup-client.sh
+ 2. Start the test
+   a) start-client.sh
