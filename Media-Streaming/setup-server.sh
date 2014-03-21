@@ -45,6 +45,35 @@ echo "[$BENCHMARK] Create new user and group for qtss, permission required ..."
 sudo addgroup qtss
 sudo adduser --system --no-create-home --ingroup qtss qtss
 
-# Configure the server
-echo "[$BENCHMARK] Configuring the server ..."
+# Install the server
+echo "[$BENCHMARK] Installing the server, permission required ..."
+sed -i "9 s|-lQTFileLib|-lQTFileLib -ldl|" \
+  Makefile.POSIX
+sed -i "9 s|libCommonUtilitiesLib.a|libCommonUtilitiesLib.a -lpthread|" \
+  QTFileTools/QTFileInfo.tproj/Makefile.POSIX
+sed -i "9 s|libQTFileExternalLib.a|libQTFileExternalLib.a -lpthread|" \
+  QTFileTools/QTFileTest.tproj/Makefile.POSIX
+sed -i "9 s|libQTFileExternalLib.a|libQTFileExternalLib.a -lpthread|" \
+  QTFileTools/QTSampleLister.tproj/Makefile.POSIX
+sed -i "9 s|libQTFileExternalLib.a|libQTFileExternalLib.a -lpthread|" \
+  QTFileTools/QTTrackInfo.tproj/Makefile.POSIX
+./Buildit
+sudo ./Install
 
+# Change configuration
+MOVIE_DIR=/usr/local/movies/
+echo "[$BENCHMARK] Changing configurations, permission required ..."
+sudo sed -i "120 s|/Library/QuickTimeStreaming/Movies|$MOVIE_DIR|" \
+  /etc/streaming/streamingserver.xml
+sudo sed -i "125 s|102400|-1|" \
+  /etc/streaming/streamingserver.xml
+sudo sed -i "128 s|1000|-1|" \
+  /etc/streaming/streamingserver.xml
+sudo sed -i "133 s|120|700|" \
+  /etc/streaming/streamingserver.xml
+sudo sed -i "135 s|180|700|" \
+  /etc/streaming/streamingserver.xml
+sudo sed -i "265 s|0|2|" \
+  /etc/streaming/streamingserver.xml
+sudo sed -i "268 s|2.0|1.2|" \
+  /etc/streaming/streamingserver.xml
