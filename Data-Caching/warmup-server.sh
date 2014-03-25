@@ -6,7 +6,7 @@
 BENCHMARK="Data-Caching"
 
 # Change directory
-cd /"$BENCHMARK-Server"/memcached-1.4.15
+cd "$BENCHMARK-Server"/memcached-1.4.15
 
 # Get hardware configuration
 NUM_CORE=`grep -c ^processor /proc/cpuinfo`
