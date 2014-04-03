@@ -16,5 +16,5 @@ echo "[$BENCHMARK] The machine has $NUM_CORE logical cores in total."
 echo "[$BENCHMARK] Scale the dataset to be around 10GB and warm cache up ..."
 ./loader -a ../twitter_dataset/twitter_dataset_unscaled \
   -o ../twitter_dataset/twitter_dataset_30x -s servers.txt \
-  -w "$NUM_CORE" -S 30 -D 4096 -j -T 10
+  -w 1 -S 30 -D 4096 -j -T 10
 echo "[$BENCHMARK] Cached has already been warmed up ..."

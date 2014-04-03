@@ -64,7 +64,24 @@ make
 make install
 
 # Build RTSP client code
+echo "[$BENCHMARK] Build RTSP client code ..."
 cd "$FABAN_DIR"
 cd streaming
 gcc -I "$CURL_DIR"/curlinst/include/ -L "$CURL_DIR"/curlinst/lib/ \
   -lcurl rtspclientfinal.c -o rtspclient.o -lcurl
+
+# Change run-test.sh script
+FABAN_ROOT=`dirname $FABAN_DIR`
+echo "[$BENCHMARK] Change run-test.sh script ..."
+sed -i "s|/home/username/|$FABAN_ROOT/|g" \
+  scripts/start-run.sh
+sed -i "s|/home/usersname/|$FABAN_ROOT/|g" \
+  scripts/run-test.sh
+sed -i "s|/home/username/|$FABAN_ROOT/|g" \
+  scripts/run-test.sh
+sed -i "s|/home/username/|$FABAN_ROOT/|g" \
+  scripts/change-config.sh
+sed -i "134 s|192.168.9.133|localhost|" \
+  deploy/run.xml*
+sed -i "s|/home/username/|$FABAN_ROOT/|g" \
+  deploy/run.xml*
