@@ -27,7 +27,7 @@ echo "[$BENCHMARK] Building TunkRank ..."
 cd graph-release/release/toolkits/graph_analytics
 make tunkrank
 cd -
-exit
+#exit
 
 # Set up different dataset
 # Small twitter dataset
@@ -37,7 +37,9 @@ echo "[$BENCHMARK] Uncompressing small twitter dataset ..."
 unzip Twitter-dataset.zip
 cd Twitter-dataset/data
 cat edges.csv | awk -F"," '{print $1, $2}' > twitter_small_data_graplab.in
-cd ..
+rm -f edges.csv
+rm -f nodes.csv
+cd ../..
 
 # Large Twitter dataset
 echo "[$BENCHMARK] Configuring large twitter dataset ..."
@@ -48,6 +50,8 @@ echo "[$BENCHMARK] Uncompressing large twitter dataset ..."
 tar zxvf twitter_rv.tar.gz 
 mkdir twitter_rv
 mv twitter_rv.net twitter_rv/.
-cd Twitter-dataset/data
+cd twitter_rv
 cat twitter_rv.net | awk '{print $2, $1}' > twitter_data_graplab.in 
-cd ../../../
+rm -f twitter_rv.net
+cd ..
+
