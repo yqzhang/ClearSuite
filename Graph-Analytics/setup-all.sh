@@ -32,6 +32,9 @@ cd -
 # Set up different dataset
 # Small twitter dataset
 echo "[$BENCHMARK] Configuring small twitter dataset ..."
+echo "[$BENCHMARK] #########################################"
+echo "[$BENCHMARK] Sometimes this link does not work well :("
+echo "[$BENCHMARK] #########################################"
 wget http://socialcomputing.asu.edu/uploads/1296759055/Twitter-dataset.zip
 echo "[$BENCHMARK] Uncompressing small twitter dataset ..."
 unzip Twitter-dataset.zip
