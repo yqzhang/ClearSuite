@@ -13,5 +13,5 @@ echo "[$BENCHMARK] The machine has $NUM_CORE logical cores in total."
 
 echo "[$BENCHMARK] Running with large twitter load:"
 cd "$BENCHMARK"-Client/graph-release/release/toolkits/graph_analytics/
-./tunkrank --graph=../../../twitter_rv/twitter_data_graplab.in \
-  --format=tsv --ncpus=$NUMCORES --engine=asynchronous 
+./tunkrank --graph=../../../../twitter_rv/twitter_data_graplab.in \
+  --format=tsv --ncpus=$NUM_CORE --engine=asynchronous 
