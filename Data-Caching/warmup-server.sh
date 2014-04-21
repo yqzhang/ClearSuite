@@ -14,4 +14,4 @@ echo "[$BENCHMARK] The machine has $NUM_CORE logical cores in total."
 
 # Start the Memcached server
 echo "[$BENCHMARK] Start the server with 4GB memory and $NUM_CORE threads."
-./memcached -t "$NUM_CORE" -D 4096 -n 550 &
+./memcached -t "$NUM_CORE" -m 4096 -n 550 &
