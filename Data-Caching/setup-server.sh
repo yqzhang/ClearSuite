@@ -19,14 +19,14 @@ mkdir "$BENCHMARK-Server"
 # Change directory
 cd "$BENCHMARK-Server"
 
-# Download Memcached 1.4.15
+# Download Memcached 1.4.19
 echo "[$BENCHMARK] Downloading Memcached 1.4.15 ..."
-wget http://memcached.googlecode.com/files/memcached-1.4.15.tar.gz
-# Uncompress Memcached 1.4.15
-echo "[$BENCHMARK] Uncompress Memcached 1.4.15 ..."
-tar -xvf memcached-1.4.15.tar.gz
+wget http://memcached.googlecode.com/files/memcached-1.4.19.tar.gz
+# Uncompress Memcached 1.4.19
+echo "[$BENCHMARK] Uncompress Memcached 1.4.19 ..."
+tar -xvf memcached-1.4.19.tar.gz
 
 # Configure and build Memcached
-cd memcached-1.4.15
+cd memcached-1.4.19
 ./configure
 make 
