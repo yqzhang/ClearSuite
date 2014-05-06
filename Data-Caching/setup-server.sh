@@ -21,7 +21,7 @@ cd "$BENCHMARK-Server"
 
 # Download Memcached 1.4.19
 echo "[$BENCHMARK] Downloading Memcached 1.4.15 ..."
-wget http://memcached.googlecode.com/files/memcached-1.4.19.tar.gz
+wget http://www.memcached.org/files/memcached-1.4.19.tar.gz
 # Uncompress Memcached 1.4.19
 echo "[$BENCHMARK] Uncompress Memcached 1.4.19 ..."
 tar -xvf memcached-1.4.19.tar.gz
