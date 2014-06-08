@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+  <property>
+    <name>mapred.job.tracker</name>
+    <value>localhost:54311</value>
+    <description>The host and port that the MapReduce job tracker runs at. If "local", then jobs are run in-process as a single map and reduce task. </description>
+  </property>
+  
+
+<property>
+  <name>io.sort.factor</name>
+      <value>25</value>
+            <description>The number of streams to merge at once while sorting
+                    files.  This determines the number of open file handles.</description>
+                            </property>
+
+<property>
+  <name>io.sort.mb</name>
+      <value>1000</value>
+            <description>The total amount of buffer memory to use while sorting
+                    files, in megabytes.  By default, gives each merge stream 1MB, which
+                              should minimize seeks.</description>
+                                        </property>
+
+<property>
+  <name>mapred.tasktracker.map.tasks.maximum</name>
+      <value>4</value>
+            <description>The maximum number of map tasks that will be run
+                    simultaneously by a task tracker.
+                              </description>
+                                        </property>
+
+<property>
+  <name>mapred.tasktracker.reduce.tasks.maximum</name>
+      <value>2</value>
+            <description>The maximum number of reduce tasks that will be run
+                    simultaneously by a task tracker.
+                              </description>
+                                        </property>
+
+<property>
+  <name>mapred.reduce.parallel.copies</name>
+      <value>4</value>
+          </property>
+
+<property>
+  <name>mapred.job.tracker.handler.count</name>
+      <value>20</value>
+          </property>
+
+<property>
+  <name>mapred.child.java.opts</name>
+      <value>-Xmx2000M</value>
+          </property>
+
+<property>
+  <name>io.sort.spill.percent</name>
+      <value>0.60</value>
+            <description>The soft limit in either the buffer or record collection
+                    buffers. Once reached, a thread will begin to spill the contents to disk
+                              in the background. Note that this does not imply any chunking of data to
+                                          the spill. A value less than 0.5 is not recommended.</description>
+                                                      </property>
+
+<property>
+  <name>mapred.map.tasks</name>
+      <value>4</value>
+            <description>The default number of map tasks per job.
+                    Ignored when mapred.job.tracker is "local".
+                              </description>
+                                        </property>
+
+<property>
+  <name>mapred.reduce.tasks</name>
+      <value>2</value>
+            <description>The default number of reduce tasks per job.
+                    </description>
+                            </property>
+
+<property>
+  <name>mapred.task.timeout</name>
+      <value>1200000</value>
+            <description>The number of milliseconds before a task will be
+                    terminated if it neither reads an input, writes an output, nor
+                              updates its status string.
+                                          </description>
+                                                      </property>
+
+<property>
+  <name>mapred.job.reuse.jvm.num.tasks</name>
+      <value>-1</value>
+            <description>How many tasks to run per jvm. If set to -1, there is
+                    no limit.
+                              </description>
+                                        </property>
+
+
+
+<property>
+  <name>mapred.map.tasks.speculative.execution</name>
+  <value>false</value>
+  <description>If true, then multiple instances of some map tasks 
+               may be executed in parallel.</description>
+</property>
+
+<property>
+  <name>mapred.reduce.tasks.speculative.execution</name>
+  <value>false</value>
+  <description>If true, then multiple instances of some reduce tasks 
+               may be executed in parallel.</description>
+</property>
+</configuration>
