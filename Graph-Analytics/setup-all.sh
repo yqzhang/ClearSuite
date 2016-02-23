@@ -25,7 +25,7 @@ cd PowerGraph
 echo "[$BENCHMARK] Building TunkRank ..."
 cd release/toolkits/graph_analytics 
 make tunkrank
-cd ../../..
+cd ../../../..
 
 #exit # Stop here for synthetic setup only
 
