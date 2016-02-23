@@ -11,23 +11,23 @@ mkdir "$BENCHMARK"-Client
 # Change directory
 cd "$BENCHMARK"-Client
 
-# Download the package
-echo "[$BENCHMARK] Downloading package ..."
-wget http://parsa.epfl.ch/cloudsuite/software/graph.tar.gz
+# Install PowerGraph
+echo "[$BENCHMARK] Downloading PowerGraph ..."
+git clone https://github.com/dato-code/PowerGraph.git
+wget http://parsa.epfl.ch/cloudsuite/software/tunkrank.cpp
+mv tunkrank.cpp PowerGraph/toolkits/graph_analytics/tunkrank.cpp
+echo "add_graphlab_executable(tunkrank tunkrank.cpp)" >> PowerGraph/toolkits/graph_analytics/CMakeLists.txt
 
-echo "[$BENCHMARK] Extracting package ..."
-tar -zxvf graph.tar.gz
-
-echo "[$BENCHMARK] Setting up package ..."
-cd graph-release/
+echo "[$BENCHMARK] Configuring PowerGraph ..."
+cd PowerGraph
 ./configure
-cd ..
 
 echo "[$BENCHMARK] Building TunkRank ..."
-cd graph-release/release/toolkits/graph_analytics
+cd release/toolkits/graph_analytics 
 make tunkrank
-cd -
-#exit
+cd ../../..
+
+#exit # Stop here for synthetic setup only
 
 # Set up different dataset
 # Small twitter dataset
