@@ -13,6 +13,6 @@ NUM_CORE=`grep -c ^processor /proc/cpuinfo`
 echo "[$BENCHMARK] The machine has $NUM_CORE logical cores in total."
 
 echo "[$BENCHMARK] Running with small twitter load:"
-cd Graph-Analytics-Client/graph-release/release/toolkits/graph_analytics/
+cd "$BENCHMARK"-Client/PowerGraph/release/toolkits/graph_analytics
 ./tunkrank --graph=../../../../Twitter-dataset/data/twitter_small_data_graplab.in \
   --format=tsv --ncpus=$NUM_CORE --engine=asynchronous 
