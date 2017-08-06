@@ -5,6 +5,6 @@ sudo apt-get install -y --no-install-recommends bc build-essential libssl-dev
 
 mkdir build
 cd build
-../videoperf/configure && make && make install
+../videoperf/configure && make && sudo make install
 
 mkdir output

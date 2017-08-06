@@ -25,8 +25,8 @@ echo "Maximum number of sessions = $maxNumSessions"
 
 benchmarkSuccess=1
 
-outputDir="/output"
-backUpStdoutDir="/output-stdout"
+outputDir="output"
+backUpStdoutDir="output-stdout"
 
 rm -rf "$outputDir/*" "$backUpStdoutDir"
 mkdir -p "$outputDir" "$backUpStdoutDir"
